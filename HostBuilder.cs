@@ -8,11 +8,7 @@ using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 using System;
 using System.IO;
-using System.Net;
-using Serilog.Events;
-using System.Linq;
-using System.Reflection;
-using BlockBase.Services;
+using BlockBase.Cli.Services;
 
 namespace BlockBase.Cli
 {
@@ -39,23 +35,11 @@ namespace BlockBase.Cli
                 }
             });
 
-            _hostBuider.ConfigureServices((hostContext, services) =>
-            {
-                var env = hostContext.HostingEnvironment;
-
-                var configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", false)
-                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
-                    .AddEnvironmentVariables()
-                    .Build();
-            });
-
             _hostBuider.ConfigureLogging((logging) =>
             {
                 var configuration = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", false)
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                     .AddEnvironmentVariables()
                     .Build();
 
@@ -63,7 +47,7 @@ namespace BlockBase.Cli
                    .ReadFrom.Configuration(configuration.GetSection("Logging"))
                    .Enrich.FromLogContext();
 
-                logConfig = logConfig.WriteTo.Console(theme: AnsiConsoleTheme.Code);
+                logConfig = logConfig.WriteTo.File($"cli_log_.log", rollingInterval: RollingInterval.Day);
                 Log.Logger = logConfig.CreateLogger();
 
                 logging.AddSerilog();
@@ -72,6 +56,7 @@ namespace BlockBase.Cli
             _hostBuider.ConfigureServices((hostContext, services) =>
             {
                 services.AddSingleton<IBlockBaseNetworkService, BlockBaseNetworkService>();
+                services.AddSingleton<IBlockBaseProviderService, BlockBaseProviderService>();
             });
 
             return this;

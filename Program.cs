@@ -22,6 +22,7 @@ namespace BlockBase.Cli
             }
             catch(Exception ex)
             {
+                Console.WriteLine("Failed to execute command with exception:");
                 Console.WriteLine(ex.Message);
                 return 1;
             }

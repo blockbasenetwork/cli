@@ -10,22 +10,25 @@ using System.Threading.Tasks;
 
 namespace BlockBase.Cli.Commands.NetworkCommands
 {
-    [Command(Name = "getsidechainconfig", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
-    public class GetSidechainConfigurationCommand : BaseCliCommand
+    [Command(Name = "getprovidercandidaturestate", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    public class GetProviderCandidatureStateCommand : BaseCliCommand
     {
         private IBlockBaseNetworkService _service;
 
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
 
-        public GetSidechainConfigurationCommand(ILogger<GetSidechainConfigurationCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        [Option(CommandOptionType.SingleValue, ShortName = "a", LongName = "account", Description = "Account Name", ValueName = "Account", ShowInHelpText = true)]
+        public string Account { get; }
+
+        public GetProviderCandidatureStateCommand(ILogger<GetProviderCandidatureStateCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
         {
             _service = service;
         }
 
         protected override async Task<int> OnExecute(CommandLineApplication app)
         {
-            var response = await _service.GetSidechainConfiguration(Endpoint, Sidechain);
+            var response = await _service.GetProducerCandidatureState(Endpoint, Account, Sidechain);
             dynamic parsedJson = JsonConvert.DeserializeObject(response);
             var result = JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
             Console.WriteLine(result);
