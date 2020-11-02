@@ -11,10 +11,10 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
-    [Command(Name = "addstake",
+    [Command(Name = "addstakeprovider",
              Description = "",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
-    public class AddStakeCommand : BaseCliCommand
+    public class AddStakeProviderCommand : BaseCliCommand
     {
         private IBlockBaseProviderService _service;
 
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "stake", LongName = "stake", Description = "Stake", ValueName = "Stake", ShowInHelpText = true)]
         public double Stake { get; }
 
-        public AddStakeCommand(ILogger<AddStakeCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public AddStakeProviderCommand(ILogger<AddStakeProviderCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
         {
             _service = service;
         }
