@@ -51,7 +51,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "blocktimeinsec", LongName = "blocktimeinsec", Description = "Block Time in Seconds", ValueName = "Block Time", ShowInHelpText = true)]
         public int? BlockTimeInSeconds { get; }
 
-        [Option(CommandOptionType.SingleValue, ShortName = "blocksizeinbyte", LongName = "blocktimeinsec", Description = "Block Size in Bytes", ValueName = "Block Size", ShowInHelpText = true)]
+        [Option(CommandOptionType.SingleValue, ShortName = "blocksizeinbyte", LongName = "blocktimeinbyte", Description = "Block Size in Bytes", ValueName = "Block Size", ShowInHelpText = true)]
         public int? BlockSizeInBytes { get; }
 
         public ChangeSidechainConfigurationsCommand(ILogger<ChangeSidechainConfigurationsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)

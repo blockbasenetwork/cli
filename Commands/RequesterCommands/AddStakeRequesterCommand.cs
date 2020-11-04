@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
-    [Command(Name = "addstakeprovider",
+    [Command(Name = "addstakerequester",
              Description = "",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class AddStakeRequesterCommand : BaseCliCommand
