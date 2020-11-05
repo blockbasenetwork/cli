@@ -15,7 +15,7 @@ To get help with any command run:
 ./blockbasecli <command> --help
 ```
 
-## Keys
+## Query Execution Keys
 
 To store a key to be used when executing a query on a requester node use:
 
