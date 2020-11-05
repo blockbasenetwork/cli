@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "executequery",
-             Description = "",
+             Description = "Sends query to be executed",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class ExecuteQueryCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "query", LongName = "querystring", Description = "Query String", ValueName = "Query String", ShowInHelpText = true)]
         public string Query { get; }
 
-        public ExecuteQueryCommand(ILogger<ExecuteQueryCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public ExecuteQueryCommand(ILogger<ExecuteQueryCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

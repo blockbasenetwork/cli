@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "getsidechainversion",
-             Description = "",
+             Description = "Gets the sidechain node software version",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetSidechainNodeSoftwareVersionCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
         
-        public GetSidechainNodeSoftwareVersionCommand(ILogger<GetSidechainNodeSoftwareVersionCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetSidechainNodeSoftwareVersionCommand(ILogger<GetSidechainNodeSoftwareVersionCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

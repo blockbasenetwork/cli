@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "get block",
-             Description = "",
+             Description = "Gets the block of a given sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetBlockCommand : BaseCliCommand
     {
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "bn", LongName = "blocknumber", Description = "Block Number", ValueName = "Block Number", ShowInHelpText = true)]
         public int BlockNumber { get; }
 
-        public GetBlockCommand(ILogger<GetBlockCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetBlockCommand(ILogger<GetBlockCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

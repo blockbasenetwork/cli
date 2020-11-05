@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "generatemasterkey",
-             Description = "",
+             Description = "Returns a newly random generated Master Key",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GenerateMasterKeyCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public GenerateMasterKeyCommand(ILogger<GenerateMasterKeyCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public GenerateMasterKeyCommand(ILogger<GenerateMasterKeyCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

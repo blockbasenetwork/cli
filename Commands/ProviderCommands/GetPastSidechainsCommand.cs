@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "getpastsidechains", 
-             Description = "", 
+             Description = "Gets information about all past sidechains", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetPastSidechainsCommand : BaseCliCommand
     {
         private IBlockBaseProviderService _service;
 
-        public GetPastSidechainsCommand(ILogger<GetPastSidechainsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetPastSidechainsCommand(ILogger<GetPastSidechainsCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

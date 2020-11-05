@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.NetworkCommands
         [Option(CommandOptionType.SingleValue, ShortName = "a", LongName = "account", Description = "Account Name", ValueName = "Account", ShowInHelpText = true)]
         public string Account { get; }
 
-        public GetAccountStakeRecordsCommand(ILogger<GetAccountStakeRecordsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        public GetAccountStakeRecordsCommand(ILogger<GetAccountStakeRecordsCommand> logger, IConsole console, IBlockBaseNetworkService service) : base(logger, console)
         {
             _service = service;
         }

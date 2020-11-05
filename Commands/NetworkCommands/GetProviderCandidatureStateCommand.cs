@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace BlockBase.Cli.Commands.NetworkCommands
 {
-    [Command(Name = "getprovidercandidaturestate", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    [Command(Name = "getprovidercandidaturestate", 
+             Description = "Gets information about the participation state of the producer on a sidechain",
+             OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetProviderCandidatureStateCommand : BaseCliCommand
     {
         private IBlockBaseNetworkService _service;
@@ -21,7 +23,7 @@ namespace BlockBase.Cli.Commands.NetworkCommands
         [Option(CommandOptionType.SingleValue, ShortName = "a", LongName = "account", Description = "Account Name", ValueName = "Account", ShowInHelpText = true)]
         public string Account { get; }
 
-        public GetProviderCandidatureStateCommand(ILogger<GetProviderCandidatureStateCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        public GetProviderCandidatureStateCommand(ILogger<GetProviderCandidatureStateCommand> logger, IConsole console, IBlockBaseNetworkService service) : base(logger, console)
         {
             _service = service;
         }

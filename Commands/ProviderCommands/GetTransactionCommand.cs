@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "gettransaction",
-             Description = "",
+             Description = "Gets a transaction of a given sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetTransactionCommand : BaseCliCommand
     {
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "tn", LongName = "transactionnumber", Description = "Transaction Number", ValueName = "Transaction Number", ShowInHelpText = true)]
         public int TransactionNumber { get; }
 
-        public GetTransactionCommand(ILogger<GetTransactionCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetTransactionCommand(ILogger<GetTransactionCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

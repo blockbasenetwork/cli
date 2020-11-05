@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "pausesidechain",
-             Description = "",
+             Description = "Pauses all sidechain state updates",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class PauseSidechainCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public PauseSidechainCommand(ILogger<PauseSidechainCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public PauseSidechainCommand(ILogger<PauseSidechainCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

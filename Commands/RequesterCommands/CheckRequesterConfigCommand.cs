@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "checkrequesterconfig",
-             Description = "",
+             Description = "Checks if the BlockBase node is correctly configured",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class CheckRequesterConfigCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public CheckRequesterConfigCommand(ILogger<CheckRequesterConfigCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public CheckRequesterConfigCommand(ILogger<CheckRequesterConfigCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

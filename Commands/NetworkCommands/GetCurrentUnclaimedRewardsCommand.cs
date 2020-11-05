@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace BlockBase.Cli.Commands.NetworkCommands
 {
-    [Command(Name = "getcurrentunclaimedrewards", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    [Command(Name = "getcurrentunclaimedrewards", 
+             Description = "Gets the current list of unclaimed rewards for a given provider",
+             OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetCurrentUnclaimedRewardsCommand : BaseCliCommand
     {
         private IBlockBaseNetworkService _service;
@@ -18,7 +20,7 @@ namespace BlockBase.Cli.Commands.NetworkCommands
         [Option(CommandOptionType.SingleValue, ShortName = "a", LongName = "account", Description = "Account Name", ValueName = "Account", ShowInHelpText = true)]
         public string Account { get; }
 
-        public GetCurrentUnclaimedRewardsCommand(ILogger<GetCurrentUnclaimedRewardsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        public GetCurrentUnclaimedRewardsCommand(ILogger<GetCurrentUnclaimedRewardsCommand> logger, IConsole console, IBlockBaseNetworkService service) : base(logger, console)
         {
             _service = service;
         }

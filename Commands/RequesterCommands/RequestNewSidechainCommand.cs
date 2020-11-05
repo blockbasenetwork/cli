@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "requestnewsidechain",
-             Description = "",
+             Description = "Requests a new sidechain for storing databases",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RequestNewSidechainCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "stake", LongName = "stake", Description = "Stake", ValueName = "Stake", ShowInHelpText = true)]
         public decimal Stake { get; }
 
-        public RequestNewSidechainCommand(ILogger<RequestNewSidechainCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public RequestNewSidechainCommand(ILogger<RequestNewSidechainCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

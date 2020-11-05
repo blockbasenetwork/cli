@@ -10,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace BlockBase.Cli.Commands.NetworkCommands
 {
-    [Command(Name = "getsidechainstate", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    [Command(Name = "getsidechainstate", 
+             Description = "Gets the current state of a given sidechain",
+             OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetSidechainStateCommand : BaseCliCommand
     {
         private IBlockBaseNetworkService _service;
@@ -18,7 +20,7 @@ namespace BlockBase.Cli.Commands.NetworkCommands
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
 
-        public GetSidechainStateCommand(ILogger<GetSidechainStateCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        public GetSidechainStateCommand(ILogger<GetSidechainStateCommand> logger, IConsole console, IBlockBaseNetworkService service) : base(logger, console)
         {
             _service = service;
         }

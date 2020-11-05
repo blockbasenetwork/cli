@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "removefromblacklist",
-             Description = "",
+             Description = "Removes the given account from the sidechain blacklist",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RemoveAccountFromBlacklistCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "a", LongName = "account", Description = "Account Name", ValueName = "Account", ShowInHelpText = true)]
         public string Account { get; }
 
-        public RemoveAccountFromBlacklistCommand(ILogger<RemoveAccountFromBlacklistCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public RemoveAccountFromBlacklistCommand(ILogger<RemoveAccountFromBlacklistCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "getstructure",
-             Description = "",
+             Description = "Asks for databases, tables and columns structure",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetStructureCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public GetStructureCommand(ILogger<GetStructureCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public GetStructureCommand(ILogger<GetStructureCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

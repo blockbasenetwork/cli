@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "getdecryptedips",
-             Description = "",
+             Description = "Gets the decrypted node ips this node has access to in a given sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetDecryptedNodeIpsCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
         
-        public GetDecryptedNodeIpsCommand(ILogger<GetDecryptedNodeIpsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetDecryptedNodeIpsCommand(ILogger<GetDecryptedNodeIpsCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

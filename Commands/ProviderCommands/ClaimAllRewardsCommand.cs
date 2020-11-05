@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "claimallrewards", 
-             Description = "", 
+             Description = "Claims all the rewards that the account of the provider is entitled to", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class ClaimAllRewardsCommand : BaseCliCommand
     {
         private IBlockBaseProviderService _service;
 
-        public ClaimAllRewardsCommand(ILogger<ClaimAllRewardsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public ClaimAllRewardsCommand(ILogger<ClaimAllRewardsCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

@@ -13,15 +13,18 @@ using System.Threading.Tasks;
 
 namespace BlockBase.Cli.Commands
 {
-    [Command(Name = "blockbasecli", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    [Command(Name = "network", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     [Subcommand(
-        typeof(NetworkCommand),
-        typeof(ProviderCommand),
-        typeof(RequesterCommand),
-        typeof(SaveKeyCommand))]
-    public class BlockBaseCli : BaseCliCommand
+        //Network
+        typeof(GetAccountStakeRecordsCommand),
+        typeof(GetPeerConnectionStateCommand),
+        typeof(GetSidechainConfigurationCommand),
+        typeof(GetCurrentUnclaimedRewardsCommand),
+        typeof(GetProviderCandidatureStateCommand),
+        typeof(GetSidechainStateCommand))]
+    public class NetworkCommand : BaseCliCommand
     {
-        public BlockBaseCli(ILogger<BlockBaseCli> logger, IConsole console) : base(logger, console)
+        public NetworkCommand(ILogger<NetworkCommand> logger, IConsole console) : base(logger, console)
         {
         }
 

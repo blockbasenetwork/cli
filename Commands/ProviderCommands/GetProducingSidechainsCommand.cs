@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "getproducingsidechains", 
-             Description = "", 
+             Description = "Gets information about all currently producing sidechains", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetProducingSidechainsCommand : BaseCliCommand
     {
         private IBlockBaseProviderService _service;
 
-        public GetProducingSidechainsCommand(ILogger<GetProducingSidechainsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetProducingSidechainsCommand(ILogger<GetProducingSidechainsCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.KeyCommands
 {
-    [Command(Name = "savekey", 
+    [Command(Name = "save key", 
              Description = "Saves a key associated to a key name to use in executing queries", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class SaveKeyCommand : BaseCliCommand
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.KeyCommands
         [Option(CommandOptionType.SingleValue, ShortName = "key", LongName = "key", Description = "Key", ValueName = "Key", ShowInHelpText = true)]
         public string Key { get; }
 
-        public SaveKeyCommand(ILogger<SaveKeyCommand> logger, IConsole console, IOptions<CliConfig> config) : base(logger, console, config)
+        public SaveKeyCommand(ILogger<SaveKeyCommand> logger, IConsole console) : base(logger, console)
         {
         }
 

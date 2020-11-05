@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "removerequesterdatabases",
-             Description = "",
+             Description = "Removes encrypted databases and the keys used to encrypt",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RemoveSidechainDatabasesAndKeysCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public RemoveSidechainDatabasesAndKeysCommand(ILogger<RemoveSidechainDatabasesAndKeysCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public RemoveSidechainDatabasesAndKeysCommand(ILogger<RemoveSidechainDatabasesAndKeysCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

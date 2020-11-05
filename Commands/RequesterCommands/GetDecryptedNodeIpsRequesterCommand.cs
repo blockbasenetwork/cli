@@ -11,14 +11,14 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
-    [Command(Name = "getdecryptednodeipsrequester",
-             Description = "",
+    [Command(Name = "getdecryptednodeips",
+             Description = "Gets the decrypted node ips in the requester sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetDecryptedNodeIpsRequesterCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public GetDecryptedNodeIpsRequesterCommand(ILogger<GetDecryptedNodeIpsRequesterCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public GetDecryptedNodeIpsRequesterCommand(ILogger<GetDecryptedNodeIpsRequesterCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

@@ -11,12 +11,14 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.NetworkCommands
 {
-    [Command(Name = "getpeerconnectionstate", OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
+    [Command(Name = "getpeerconnectionstate", 
+             Description = "Gets the list of peers this node knows and the connection status",
+             OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetPeerConnectionStateCommand : BaseCliCommand
     {
         private IBlockBaseNetworkService _service;
 
-        public GetPeerConnectionStateCommand(ILogger<GetPeerConnectionStateCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseNetworkService service) : base(logger, console, config)
+        public GetPeerConnectionStateCommand(ILogger<GetPeerConnectionStateCommand> logger, IConsole console, IBlockBaseNetworkService service) : base(logger, console)
         {
             _service = service;
         }

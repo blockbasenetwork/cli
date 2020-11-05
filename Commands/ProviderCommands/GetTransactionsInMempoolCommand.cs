@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "getmempooltransactions",
-             Description = "",
+             Description = "Gets all transactions that haven't been added to a block",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class GetTransactionsInMempoolCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
         
-        public GetTransactionsInMempoolCommand(ILogger<GetTransactionsInMempoolCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public GetTransactionsInMempoolCommand(ILogger<GetTransactionsInMempoolCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

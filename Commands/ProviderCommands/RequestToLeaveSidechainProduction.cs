@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "requesttoleavesidechain",
-             Description = "",
+             Description = "Sends a transaction to BlockBase Operations Contract stating that the provider wants to leave this sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RequestToLeaveSidechainProduction : BaseCliCommand
     {
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "clean", LongName = "cleanlocaldata", Description = "Clean Local Data", ValueName = "Clean Local Data", ShowInHelpText = true)]
         public int CleanLocalData { get; }
 
-        public RequestToLeaveSidechainProduction(ILogger<RequestToLeaveSidechainProduction> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public RequestToLeaveSidechainProduction(ILogger<RequestToLeaveSidechainProduction> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

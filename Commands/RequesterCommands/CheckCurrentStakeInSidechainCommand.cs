@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "checkcurrentrequesterstake",
-             Description = "",
+             Description = "Retrieves the current staked balance in the sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class CheckCurrentStakeInSidechainCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public CheckCurrentStakeInSidechainCommand(ILogger<CheckCurrentStakeInSidechainCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public CheckCurrentStakeInSidechainCommand(ILogger<CheckCurrentStakeInSidechainCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

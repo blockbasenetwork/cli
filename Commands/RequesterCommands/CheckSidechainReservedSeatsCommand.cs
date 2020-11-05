@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "checkreservedseats",
-             Description = "",
+             Description = "Gets all the current reserved seats in the sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class CheckSidechainReservedSeatsCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public CheckSidechainReservedSeatsCommand(ILogger<CheckSidechainReservedSeatsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public CheckSidechainReservedSeatsCommand(ILogger<CheckSidechainReservedSeatsCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

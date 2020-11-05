@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "setsecret",
-             Description = "",
+             Description = "The requester uses this service to set encrypting key and information",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class SetSecretCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public SetSecretCommand(ILogger<SetSecretCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public SetSecretCommand(ILogger<SetSecretCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "checkproducerconfig", 
-             Description = "", 
+             Description = "Checks if the BlockBase node is correctly configured", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class CheckProducerConfigCommand : BaseCliCommand
     {
         private IBlockBaseProviderService _service;
 
-        public CheckProducerConfigCommand(ILogger<CheckProducerConfigCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public CheckProducerConfigCommand(ILogger<CheckProducerConfigCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

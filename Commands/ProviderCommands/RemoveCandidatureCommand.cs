@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
     [Command(Name = "removecandidature",
-             Description = "",
+             Description = "Removes an active candidature to a sidechain production",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RemoveCandidatureCommand : BaseCliCommand
     {
@@ -21,7 +21,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "s", LongName = "sidechain", Description = "Sidechain Name", ValueName = "Sidechain", ShowInHelpText = true)]
         public string Sidechain { get; }
 
-        public RemoveCandidatureCommand(ILogger<RemoveCandidatureCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public RemoveCandidatureCommand(ILogger<RemoveCandidatureCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }

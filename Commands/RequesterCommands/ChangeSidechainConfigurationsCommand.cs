@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "changeconfigurations",
-             Description = "",
+             Description = "Alter current sidechain configurations",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class ChangeSidechainConfigurationsCommand : BaseCliCommand
     {
@@ -54,7 +54,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "blocksizeinbyte", LongName = "blocktimeinbyte", Description = "Block Size in Bytes", ValueName = "Block Size", ShowInHelpText = true)]
         public int? BlockSizeInBytes { get; }
 
-        public ChangeSidechainConfigurationsCommand(ILogger<ChangeSidechainConfigurationsCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public ChangeSidechainConfigurationsCommand(ILogger<ChangeSidechainConfigurationsCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

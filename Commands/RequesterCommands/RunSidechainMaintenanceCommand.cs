@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "runsidechainmaintenance",
-             Description = "",
+             Description = "The requester uses this service to start the process for producers to participate and build the sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class RunSidechainMaintenanceCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public RunSidechainMaintenanceCommand(ILogger<RunSidechainMaintenanceCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public RunSidechainMaintenanceCommand(ILogger<RunSidechainMaintenanceCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

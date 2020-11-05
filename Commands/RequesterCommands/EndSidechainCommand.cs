@@ -12,13 +12,13 @@ using Newtonsoft.Json;
 namespace BlockBase.Cli.Commands.RequesterCommands
 {
     [Command(Name = "endsidechain",
-             Description = "",
+             Description = "Sends a transaction to the BlockBase Operations Contract to terminate the sidechain and removes unsent transactions",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class EndSidechainCommand : BaseCliCommand
     {
         private IBlockBaseRequesterService _service;
 
-        public EndSidechainCommand(ILogger<EndSidechainCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseRequesterService service) : base(logger, console, config)
+        public EndSidechainCommand(ILogger<EndSidechainCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
         }

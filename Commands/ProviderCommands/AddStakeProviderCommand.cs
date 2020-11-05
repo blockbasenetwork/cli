@@ -11,8 +11,8 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.ProviderCommands
 {
-    [Command(Name = "addstakeprovider",
-             Description = "",
+    [Command(Name = "addstake",
+             Description = "Sends a transaction to BlockBase Token Contract to add stake to a sidechain",
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class AddStakeProviderCommand : BaseCliCommand
     {
@@ -24,7 +24,7 @@ namespace BlockBase.Cli.Commands.ProviderCommands
         [Option(CommandOptionType.SingleValue, ShortName = "stake", LongName = "stake", Description = "Stake", ValueName = "Stake", ShowInHelpText = true)]
         public double Stake { get; }
 
-        public AddStakeProviderCommand(ILogger<AddStakeProviderCommand> logger, IConsole console, IOptions<CliConfig> config, IBlockBaseProviderService service) : base(logger, console, config)
+        public AddStakeProviderCommand(ILogger<AddStakeProviderCommand> logger, IConsole console, IBlockBaseProviderService service) : base(logger, console)
         {
             _service = service;
         }
