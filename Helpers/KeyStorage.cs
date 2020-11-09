@@ -8,15 +8,11 @@ using System.IO;
 
 namespace BlockBase.Cli.Helpers
 {
-    public class KeyStorage
+    public static class KeyStorage
     {
         private static readonly string KEYS_FOLDER = "keys/";
 
-        public KeyStorage()
-        {
-        }
-
-        public byte[] LoadKey(string keyName, string password)
+        public static byte[] LoadKey(string keyName, string password)
         {
             var fileLine = FileWriterReader.ReadLine(KEYS_FOLDER + keyName);
             var encryptedData = System.Convert.FromBase64String(fileLine);
@@ -25,7 +21,7 @@ namespace BlockBase.Cli.Helpers
             return decryptedKey;
         }
 
-        public string SaveKey(string keyName, byte[] key)
+        public static string SaveKey(string keyName, byte[] key)
         {
             var randomPassword = new byte[32];
             using (var rngCryptoServiceProvider = new RNGCryptoServiceProvider())

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
 using BlockBase.Cli.Helpers;
+using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Services
 {
@@ -108,15 +110,20 @@ namespace BlockBase.Cli.Services
             return result;
         }
 
-        public async Task<string> ExecuteQuery(string endpoint, string queryScript)
+        public async Task<string> ExecuteQuery(string endpoint, string queryScript, string keyName, string keyPassword)
         {
             var requestEndpoint = "/ExecuteQuery";
 
-            var query = new Dictionary<string, string>();
-            query.Add("queryScript", queryScript);
+            var key = KeyStorage.LoadKey(keyName, keyPassword);
+            var signature = SignatureHelper.SignHash(Encoding.UTF8.GetString(key), Encoding.UTF8.GetBytes(queryScript));
+
+            var queryRequest = new Dictionary<string, string>();
+            queryRequest.Add("Query", queryScript);
+            queryRequest.Add("Account", keyName);
+            queryRequest.Add("Signature", signature);
             
-            var request = HttpHelper.ComposeWebRequestPost(endpoint + RequesterEndpoint + requestEndpoint, query);
-            var result = await HttpHelper.CallWebRequest(request);
+            var request = HttpHelper.ComposeWebRequestPost(endpoint + RequesterEndpoint + requestEndpoint);
+            var result = await HttpHelper.CallWebRequest(request, queryRequest);
             return result;
         }
 

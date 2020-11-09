@@ -30,9 +30,8 @@ namespace BlockBase.Cli.Commands.KeyCommands
 
         protected override Task<int> OnExecute(CommandLineApplication app)
         {
-            var keyStorage = new KeyStorage();
             var keyBytes = Encoding.UTF8.GetBytes(Key);
-            var password = keyStorage.SaveKey(KeyName, keyBytes);
+            var password = KeyStorage.SaveKey(KeyName, keyBytes);
             Console.WriteLine($"Password for saved key: {password}");
             Console.WriteLine($"Please store this password in order to be able to use this key when executing queries through the CLI.");
             return Task.FromResult(0);

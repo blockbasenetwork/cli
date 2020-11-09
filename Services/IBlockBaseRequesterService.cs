@@ -20,7 +20,7 @@ namespace BlockBase.Cli.Services
         Task<string> AddStake(string endpoint, double stake);
         Task<string> ClaimStake(string endpoint);
         Task<string> GenerateMasterKey(string endpoint);
-        Task<string> ExecuteQuery(string endpoint, string queryScript);
+        Task<string> ExecuteQuery(string endpoint, string queryScript, string keyName, string keyPassword);
         //Task<string> GetAllTableValues(string endpoint);
         Task<string> GetStructure(string endpoint);
         Task<string> RemoveSidechainDatabasesAndKeys(string endpoint);

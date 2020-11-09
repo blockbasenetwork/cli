@@ -21,6 +21,12 @@ namespace BlockBase.Cli.Commands.RequesterCommands
         [Option(CommandOptionType.SingleValue, ShortName = "query", LongName = "querystring", Description = "Query String", ValueName = "Query String", ShowInHelpText = true)]
         public string Query { get; }
 
+        [Option(CommandOptionType.SingleValue, ShortName = "key", LongName = "keyname", Description = "Key Name", ValueName = "Key Name", ShowInHelpText = true)]
+        public string KeyToUse { get; }
+
+        [Option(CommandOptionType.SingleValue, ShortName = "keypassword", LongName = "keypassword", Description = "Key Password", ValueName = "Key Password", ShowInHelpText = true)]
+        public string KeyPassword { get; }
+
         public ExecuteQueryCommand(ILogger<ExecuteQueryCommand> logger, IConsole console, IBlockBaseRequesterService service) : base(logger, console)
         {
             _service = service;
@@ -28,7 +34,7 @@ namespace BlockBase.Cli.Commands.RequesterCommands
 
         protected override async Task<int> OnExecute(CommandLineApplication app)
         {
-            var response = await _service.ExecuteQuery(Endpoint, Query);
+            var response = await _service.ExecuteQuery(Endpoint, Query, KeyToUse, KeyPassword);
             dynamic parsedJson = JsonConvert.DeserializeObject(response);
             var result = JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
             Console.WriteLine(result);
