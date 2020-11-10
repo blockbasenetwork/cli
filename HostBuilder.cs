@@ -57,6 +57,7 @@ namespace BlockBase.Cli
             {
                 services.AddSingleton<IBlockBaseNetworkService, BlockBaseNetworkService>();
                 services.AddSingleton<IBlockBaseProviderService, BlockBaseProviderService>();
+                services.AddSingleton<IBlockBaseRequesterService, BlockBaseRequesterService>();
             });
 
             return this;
