@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace BlockBase.Cli.Commands.KeyCommands
 {
-    [Command(Name = "save key", 
+    [Command(Name = "savekey", 
              Description = "Saves a key associated to a key name to use in executing queries", 
              OptionsComparison = System.StringComparison.InvariantCultureIgnoreCase)]
     public class SaveKeyCommand : BaseCliCommand
